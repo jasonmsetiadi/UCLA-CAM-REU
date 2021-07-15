@@ -6,4 +6,5 @@ The first step of this framework is to compute the non-local means feature vecto
 [1] Z. Meng, E. Merkurjev, A. Koniges, and A. L. Bertozzi, “Hyperspectral
 image classification using graph clustering methods,” Image Processing
 On Line, vol. 7, pp. 218–245, 2017.
-[2] jwcalder, GraphLearning, (2020), GitHub repository, https://github.com/jwcalder/GraphLearningi
+
+[2] jwcalder, GraphLearning, (2020), GitHub repository, https://github.com/jwcalder/GraphLearning
