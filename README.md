@@ -7,6 +7,8 @@ After preprocessing the image, we can create a weight matrix using a k-nearest n
 
 Additionally, we also explored the use of variational autoencoders [6] which serves as a dimensionality reduction tool. We plotted the 2d result comparing PCA with 2 components and PCA with 10 components then non-local means with window size 2 then reduce the dimension to 2 using the variational autoencoder.
 
+##References
+
 [1] Z. Meng, E. Merkurjev, A. Koniges, and A. L. Bertozzi, “Hyperspectral
 image classification using graph clustering methods,” Image Processing
 On Line, vol. 7, pp. 218–245, 2017.
