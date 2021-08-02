@@ -1,17 +1,13 @@
 ## REU
-In this project, we are working with RGB images and hyperspectral images. The goal is to classify these images into several classes depending on the images. We use a graphical framework to classify these images because it allows for a general incorporation of information of any kind of dataset (video, text, images, etc). It is also able to work with nonlinearly separable classes. Lastly, it can capture texture and patterns throughout the image using the non-local means feature vector, which we will use in our framework. The algorithm is specified in [1] as Algorithm 4.
+In this, I explored active learning methods along graph-based semi-supervised learning frameworks on datasets such as MNIST, MSTAR, as well as SalinasA Hyperspectral Image. We are interested to see whether they outperform random sampling on our experiments. There are generally two tasks in active learning, exploration and exploitation. Exploration methods are methods that explore the structure of the dataset first while exploitation methods select points that are most ambiguous for the classifier. The methods we tried out are: uncertainty sampling, v-optimality[1], sigma-optimality[6], model change, and model change - voptimality. Uncertainty is an example of exploitation methods while v and sigma opt are well-known exploration methods. Model change and model change - vopt are methods that try to balance out exploration with exploitation with different ratios.
 
-We will try out several image preprocessing methods and compare the results from spectral clustering [3], laplace learning [4], and poisson learning [5]. The methods are non-local means, PCA, non-local means then PCA, as well as PCA then non-local means. We also have a baseline result using the raw image.
+We use two GSSL frameworks which are Laplace and Poisson learning in our experiments. First, we choose an initial set of labeled points from each class randomly using a function from Dr Calder's package[2]. Then, we start applying our methods to select the next labeled points and perform Laplace and Poisson learning to predict the remaining labels and calculate the accuracy of the prediction. Our results show that most of our active learning methods outperform random sampling, which is what we are looking for. However, in my opinion, the best performing methods would be vopt and mc-vopt because they have a significant increase with low label rates but also explored ambiguous regions pretty well as labeled points increases.
 
-After preprocessing the image, we can create a weight matrix using a k-nearest neighbor graph. We used the graphlearning package [2] proposed by Dr. Calder to construct the weight matrix. Then, we can perform spectral clustering which is an unsupervised learning algorithm, laplace and poisson learning which are both semi-supervised learning algorithms, to classify the image into k classes, which will serve as our image segmentation. Finally, we can plot the image segmentation as well as the accuracy scores if possible.
-
-Additionally, we also explored the use of variational autoencoders [6] which serves as a dimensionality reduction tool. We plotted the 2d result comparing PCA with 2 components and PCA with 10 components then non-local means with window size 2 then reduce the dimension to 2 using the variational autoencoder.
+At first, we tested our active learning methods on a synthetic dataset with 8 gaussian clusters. This enables us to visualize how each method selects the points to label. One drawback we had was with model change because it didn't seem to perform as we expected. However, the other methods perform as expected and so we can apply those methods to more complicated datasets as listed in the beginning. One guess as to why model change is not performing as expected may because the covariance matrix still contains negative entries which isn't supposed to happen.
 
 ## References
-
-[1] Z. Meng, E. Merkurjev, A. Koniges, and A. L. Bertozzi, “Hyperspectral
-image classification using graph clustering methods,” Image Processing
-On Line, vol. 7, pp. 218–245, 2017.
+	
+[1] M. Ji and J. Han, “A variance minimization criterion to active learning on graphs,” in Proceedings of the Fifteenth International Conference on Artificial Intelligence and Statistics, ser. Proceedings of Machine Learning Research, N. D. Lawrence and M. Girolami, Eds., vol. 22. La Palma, Canary Islands: PMLR, 21–23 Apr 2012, pp. 556–564. [Online]. Available: http://proceedings.mlr.press/v22/ji12.html
 
 [2] jwcalder, GraphLearning, (2020), GitHub repository, https://github.com/jwcalder/GraphLearning
 
@@ -29,4 +25,4 @@ International Conference on Machine Learning, ICML 2020, H. Daume
 and A. Singh, Eds. International Machine Learning Society (IMLS),
 2020, pp. 1283–1293.
 
-[6] Z. Cao, X. Li, and L. Zhao. Unsupervised feature learning by autoencoder and prototypical contrastive learningfor hyperspectral classification.arXiv preprint arXiv:2009.00953, 2020.
+[6] Y. Ma, R. Garnett, and J. Schneider, “Σ-optimality for active learn- ing on Gaussian random fields,” in Advances in Neural Information Processing Systems, vol. 26, 2013.
