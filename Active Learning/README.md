@@ -5,6 +5,9 @@ We use two GSSL frameworks which are Laplace and Poisson learning in our experim
 
 At first, we tested our active learning methods on a synthetic dataset with 8 gaussian clusters. This enables us to visualize how each method selects the points to label. One drawback we had was with model change because it didn't seem to perform as we expected. However, the other methods perform as expected and so we can apply those methods to more complicated datasets as listed in the beginning. One guess as to why model change is not performing as expected may because the covariance matrix still contains negative entries which isn't supposed to happen.
 
+## Notes
+1. To view Toy_Dataset_Active_Learning.ipynb, go to https://nbviewer.jupyter.org/ and paste https://github.com/jasonmsetiadi/UCLA-CAM-REU/blob/main/Active%20Learning/Toy_Dataset_Active_Learning.ipynb to view the notebook.
+
 ## References
 	
 [1] M. Ji and J. Han, “A variance minimization criterion to active learning on graphs,” in Proceedings of the Fifteenth International Conference on Artificial Intelligence and Statistics, ser. Proceedings of Machine Learning Research, N. D. Lawrence and M. Girolami, Eds., vol. 22. La Palma, Canary Islands: PMLR, 21–23 Apr 2012, pp. 556–564. [Online]. Available: http://proceedings.mlr.press/v22/ji12.html
